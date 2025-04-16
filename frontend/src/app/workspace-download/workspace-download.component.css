@@ -1,0 +1,187 @@
+  .title {
+    padding: 1.172vw;
+  }
+
+  .title h1{
+    font-size: 1.25vw;
+  }
+
+  li {
+    margin: 0.781vw;
+    list-style: none;
+  }
+
+  ul{
+    max-height: 8vw;
+  }
+
+  #mep-start {
+    height: auto;
+    align-items: center;
+  }
+
+  .mep-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-bottom: 5vh;
+    box-shadow: 0px 0.156vw 9.766vw rgba(0, 0, 0, 0.25);
+    border-radius: 0.586vw;
+    flex: 1;
+  }
+  
+  .top-mep {
+    background-color: #3C5C5D;
+    color: white;
+    border-radius: 0.586vw 0.586vw 0px 0px;
+  }
+  .top-mep h1 {
+    font-size: 2vw;
+    font-weight: bold;
+    padding: 2vw 0vw 1vw 2vw;
+  }
+  .top-mep p {
+    font-size: 1.5vw;
+    font-weight: normal;
+    padding: 0px 2vw 2vw 2vw;
+  }
+
+  .mep-content {
+    height: 100%;
+    justify-content: center;
+    column-gap: 5vw;
+  }
+
+  .mep-group {
+    margin: 0vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: #31353A;
+    gap: 2vw;
+  }
+
+  .text-mep-content{
+    font-size: 2vw;
+  }
+
+.start-btn {
+  height: 4.266vw;
+  width: 20vw;
+  background-color: #3C5C5D;
+  color: white;
+  font-size: 1.5vw;
+  font-weight: bold;
+  border-radius: 3vw;
+}
+
+.start-btn:hover {
+background-color: #314f50;
+}
+
+.download-btn {
+height: 3vw;
+width: 30vw;
+background-color: #3C5C5D;
+color: white;
+font-size: 1.5vw;
+font-weight: bold;
+border-radius: 3vw;
+}
+.download-btn:hover {
+  background-color: #314f50;
+}
+
+  .logo-img{
+    width: 25vw;
+    height: auto;
+  }
+
+  .component-content{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .loading-spinner{
+    display: flex;
+    flex:1;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+  }
+
+  .listMeps {
+    overflow-y: scroll;
+  }
+
+@media screen and (max-width: 576px) {
+  .title {
+    padding: 2vw;
+  }
+  
+  .title h1{
+    font-size: 3vw;
+  }
+  
+  .mep-container {
+    margin-bottom: 4vw;
+    box-shadow: 0px 0.156vw 9.766vw rgba(0, 0, 0, 0.25);
+    border-radius: 0.586vw;
+  }
+    
+  .top-mep {
+    border-radius: 0.586vw 0.586vw 0px 0px;
+  }
+  
+  .top-mep h1 {
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 4vw 0vw 2vw 4vw;
+  }
+
+  .logo-img{
+    width: 70vw;
+    height: auto;
+  }
+
+  li {
+    margin: 0.781vw;
+    /*0,06077007843391456537239904064303*/
+
+  }
+
+  .start-btn{
+    height: 8vw;
+    width: 40vw;
+    background-color: #3C5C5D;
+    color: white;
+    font-size: 4vw;
+    font-weight: bold;
+    border-radius: 8vw;
+  }
+
+  .download-btn{
+    height: 11vw;
+    width: 90vw;
+    background-color: #3C5C5D;
+    color: white;
+    font-size: 4vw;
+    font-weight: bold;
+    border-radius: 8vw;
+  }
+
+  ul{
+    position: absolute;
+    top: 380px;
+    left: 125px;
+    max-height: 14vh;
+    overflow: auto;
+  }
+
+  .text-mep-content{
+    font-size: 5vw;
+  }
+}  

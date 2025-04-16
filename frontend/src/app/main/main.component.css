@@ -1,0 +1,696 @@
+@font-face {
+    font-family: 'arial';
+    src: url('../../assets/fonts/Inria_Sans/InriaSans-Regular.ttf') format('truetype');
+    font-weight: bold;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #283D3E;
+}
+
+/*HOME*/
+
+#home {
+    width: 100%;
+    height: 42.656vw;
+    background-image: url(../../assets/backgrounds/background-home.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home_logo{
+    width: 35vw;
+    height: auto;
+}
+
+#home h1 {
+    font-size: 2vw;
+    padding: 1.3vw;
+}
+
+#home p {
+    font-size: 1.5vw;
+    font-weight: normal;
+    padding: 1.25vw;
+}
+
+#home button {
+    background-color: #FFFFC0;
+    color: black;
+    width: 12vw;
+    height: 5vw;
+    font-size: 1.5vw;
+    border-radius: 1.2vw;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+#home button:hover {
+    transition: background-color 0.5s ease;
+    background-color: #eaea7c;
+}
+
+.text-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+}
+
+/*SHOW*/
+
+#show {
+    background-color: hsl(183, 22%, 20%);
+    display: flex;
+    justify-content: center;
+    margin-left: 2.5%;
+    height: 38.391vw;
+}
+
+.element-show {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 5.57vw;
+    margin-block: 10vw;
+}
+
+.element-show:last-child {
+    margin-right: 0;
+}
+
+.element-show h1, .element-show p {
+    font-size: 1.5vw;
+    color: white;
+    padding: 1.05vw;
+}
+
+.icon {
+    width: 6.3vw;
+    height: auto;
+}
+
+/*MEP*/
+
+#mep {
+    background-image: url(../../assets/backgrounds/background-mep.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.element-mep {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-block: 5.234vw;
+
+    >img{
+        width: 25vw;
+        height: auto;
+        margin-right: 10vw;
+    }
+}
+
+.element-mep h1, .element-mep p {
+    color: white;
+    padding: 1vw;
+}
+
+.element-mep h1 {
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+.element-mep p {
+    font-weight: lighter;
+    font-size: 1.2vw;
+    width: 46.875vw;
+}
+
+/*PROFESSOR*/
+
+#professor {
+    display: flex;
+    justify-content: center;
+
+    >img{
+        width: 30vw;
+        height: auto;
+    }
+}
+
+.element-professor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-block: 10vw;
+
+    >img{
+        width: 42.188vw;
+        height: auto;
+    }
+}
+
+.element-professor h1, .element-professor p {
+    padding: 1.1vw;
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.element-professor h1 {
+    padding: 15.41px;
+}
+
+.element-professor p {
+    padding: 10px;
+}
+
+.element-professor h1 {
+    color: #FFFFC0;
+    font-weight: bold;
+    font-size: 2.2vw;
+}
+
+#rect {
+    width: 30vw;
+    height: 2.68px;
+    background: #FFFFC0;
+}
+
+.element-professor p {
+    color: white;
+    font-weight: lighter;
+    font-size: 1.2vw;
+}
+
+footer {
+    width: 100%;
+    height: 24vh;
+    background-color: #202F30;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-element {
+    display: flex;
+    align-items: center;
+}
+
+.footer-element button {
+    width: 9vw;
+    height: 2.8vw;
+    background-color:#202F30;
+    color: #FFFFC0;
+    font-size: 1.1vw;
+    border: 0.3vw solid #FFFFC0;
+    font-weight: bold;
+    margin-left: 2.5vw;
+}
+
+#footer-text {
+    display: flex;
+    margin-right: 2.5vw;
+}
+
+#footer-text a {
+    text-decoration: none;
+    margin: 2vw;
+    font-weight: lighter;
+    font-size: 1.1vw;
+    color: #FFFFC0;
+}
+
+#rect2 {
+    width: 2px;
+    height: 12vh;
+    background-color: #FFFFC0;
+}
+
+#footer-medias {
+    display: flex;
+    margin-left: 3vw;
+}
+
+#footer-medias a {
+    margin-left: 1.3vw;
+}
+
+#footer-medias a img{
+    width: 3.333vw;
+    height: auto;
+}
+
+#footer-medias a:first-child {
+    margin-left: 0;
+}
+
+#left {
+    margin-left: 8.333vw;
+    margin-right: 18.056vw;
+}
+
+#right {
+    margin-right: 8.333vw;
+}
+
+@media screen and (max-width: 768px){
+    #home{
+        height: 60vw;
+        margin-top: 5.517vw;
+
+        >img{        
+            width: 40.625vw;
+            height:auto;
+        }
+    }
+
+    #home h1 {
+        font-size: 2.604vw;
+        padding: 1.693vw;
+    }
+    
+    #home p {
+        font-size: 2.083vw;
+        font-weight: normal;
+        padding: 1.693vw;
+    }
+    
+    #home button {
+        width: 19.531vw;
+        height: 5.859vw;
+        font-size: 2.344vw;
+        border-radius: 2vw;
+    }
+
+    /*Show*/
+
+    #show{
+        height: 50vw;
+    }
+    
+    .element-show {
+        margin-block: 13.021vw;
+    }
+    
+    .element-show h1, .element-show p {
+        font-size: 2.083vw;
+        padding: 1.432vw;
+    }
+    
+    .icon {
+        width: 9.115vw;
+        height: auto;
+    }
+
+    #mep{
+        height: 60vw;
+    }
+
+    #mep h1 {
+        font-size: 3.125vw;
+    }
+    
+    .element-mep {
+        margin-block: 13.021vw;
+    }
+    
+    .element-mep h1, .element-mep p {
+        padding: 1.432vw;
+    }
+    
+    .element-mep h1 {
+        font-size: 3.125vw;
+    }
+    
+    .element-mep p {
+        font-weight: lighter;
+        font-size: 1.563vw;
+    }
+
+    #table{
+        width: 33.854vw;
+        height: auto;
+    }
+    
+    /*PROFESSOR*/
+    
+    .element-professor {
+        margin-block: 13.021vw;
+
+        >img{
+            width: 38.151vw;
+            height: auto;
+            margin-right: 7.031vw;
+        }
+    }
+    
+    .element-professor h1, .element-professor p {
+        padding: 1.432vw;
+        
+    }
+    
+    .element-professor h1 {
+        font-size: 3.125vw;
+    }
+    
+    #rect {
+        width: 43.1vw;
+        height: 2px;
+    }
+    
+    .element-professor p {
+        font-size: 1.302vw;
+    }
+
+    footer {
+        height: 11.849vw;
+    }
+    
+    .footer-element {
+        >img{
+            width: 14.323vw;
+            height: auto;
+        }
+    }
+    
+    .footer-element button {
+        width: 8.203vw;
+        height: 2.604vw;
+        font-size: 1.042vw;
+        border: 0.326vw solid #FFFFC0;
+        margin-left: 2.604vw;
+    }
+    
+    #footer-text {
+        display: flex;
+        margin-right: 2.344vw;
+    }
+    
+    #footer-text a {
+        text-decoration: none;
+        margin: 1.432vw;
+        font-weight: lighter;
+        font-size: 1.432vw;
+        color: #FFFFC0;
+    }
+    
+    #rect2 {
+        width: 2px;
+        height: 5.339vw;
+    }
+    
+    #footer-medias {
+        margin-left: 2.865vw;
+
+    }
+    
+    #footer-medias a {
+        margin-left: 1.302vw;
+
+        >img{
+            width: 4.688vw;
+            height: auto;
+        }
+    }
+    
+    #footer-medias a:first-child {
+        margin-left: 0;
+    }
+    
+    #left {
+        margin-left: 7.813vw;
+        margin-right: 8.464vw;
+    }
+    
+    #right {
+        margin-right: 10vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+        /*HOME*/
+
+    #home {
+        background-color: white;
+        position: relative;
+        top: 7.059vw;
+        height: 106vw;
+        display: inline;
+
+        >img{
+            position: relative;
+            width: auto;
+            height: 64.7vw;
+            left: 16vw;
+            top: -27vw;
+        }
+        
+    }
+
+    #home_logo{
+        width: 300vw;
+        height: auto;
+    }
+    
+    
+    #home h1, p, button {
+        position: relative;
+    }
+
+    #home h1 {
+        top: 67vw;
+        font-size: 3.529vw;
+    }
+
+    #home p {
+        top: 65vw;
+        font-size: 2.824vw;
+    }
+
+    #home button {
+        top: 67vw;
+        width: 34vw;
+        height: 10.588vw;
+        font-size: 4.235vw;
+    }
+
+    /*SHOW*/
+
+    #show {
+        height: 148.235vw;
+
+    }
+
+    .element-show {
+        margin-block: 47.059vw;
+    }
+
+    .element-show h1, .element-show p {
+        font-size: 3.765vw;
+        color: white;
+        padding: 2.824vw;
+        top: 47.059vw;
+    }
+
+    .element-show h1{
+        position: absolute;
+        top: 135.294vw;
+        left: 21.176vw;
+    }
+
+    .element-show p{
+        position: absolute;
+        top: 149.412vw;
+        left: 7.059vw;
+
+    }
+
+    #bussula-text-p{
+        top: 195.294vw;
+    }
+
+    #bussula-text-h1{       
+        top: 180vw;
+    }
+
+    #seta-text-p{
+        top: 241.176vw;
+        
+    }
+
+    #seta-text-h1{
+        top: 224.706vw;
+    }
+    
+
+    .icon {
+        position: absolute;
+        width: 16.471vw;
+        height: auto;
+        left: 7.059vw;
+        top: 134.118vw;
+    }
+
+    #bussula{
+        top: 178.824vw;
+    }
+
+    #seta{
+        top: 223.529vw;
+    }
+
+    /*MEP*/
+
+    #mep{
+        height: 135vw;
+    }
+
+    #table{
+        position: absolute;
+        width: 75vw;
+        height: auto;
+        left: 10.588vw;
+        top: 282.353vw;
+        margin: auto;
+    }
+
+    .element-mep h1, .element-mep p {
+        position: absolute;
+        top: 364.706vw;
+    }
+
+    .element-mep h1 {
+        font-size: 5.529vw;
+    }
+
+    .element-mep p {
+        width: 70.588vw;
+        top: 372vw;
+        font-size: 2.824vw;
+    }
+
+    /*PROFESSOR*/
+
+    #professor{
+        height: 75vw;        
+    }
+
+    .element-professor img{
+        position: absolute;
+        top: 399vw;
+        left: -6vw;
+        width: 65.882vw;
+        height: auto;
+        
+    }
+
+    .element-professor h1, .element-professor p {
+        position: absolute;
+        padding: 0px;
+    }
+
+    .element-professor h1 {
+        top: 400vw;
+        left: 54vw;
+        font-size: 3.294vw;
+        width: 32.941vw;
+    }
+
+    #rect {
+        position: absolute;
+        top: 405vw;
+        width: 32.941vw;
+        left: 54vw;
+    }
+
+    .element-professor p{
+        width: 32.941vw;
+        left: 54vw;
+        top: 407vw;
+        font-size: 1.694vw;
+    }
+
+    .element-professor p:nth-child(4){
+        top: 421vw;
+    }
+
+    .element-professor p:nth-child(5){
+        top: 435vw;
+    }
+
+    footer {
+        height: 21.412vw;
+    }
+    
+    .footer-element {
+        
+        >img{
+            display: none;
+        }
+    }
+    
+    .footer-element button {
+        display: none;
+    }
+    
+    #footer-text {
+        display: flex;
+        margin-right: 4.235vw;
+    }
+    
+    #footer-text a {
+        margin: 2.11vw;
+        font-size: 2.353vw;
+    }
+    
+    #rect2 {
+        width: 2px;
+        height: 9.647vw;
+    }
+    
+    #footer-medias {
+        margin-left: 2.353vw;
+
+    }
+    
+    #footer-medias a {
+        margin-left: 1.647vw;
+
+        >img{
+            width: 7.059vw;
+            height: auto;
+        }
+    }
+    
+    #footer-medias a:first-child {
+        margin-left: 0;
+    }
+    
+    #left {
+        margin-left: 5.882vw;
+        margin-right: 1.176vw;
+    }
+    
+    #right {
+        margin-right: 7.059vw;
+    }
+}

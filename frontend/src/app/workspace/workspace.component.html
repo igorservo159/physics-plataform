@@ -1,0 +1,169 @@
+<body>
+    <div id="bar">
+        <div *ngIf="longBar == false && !isMobile" class="short-bar">
+            <div class="icon-container">
+                <img id="btn-logo" src="/assets/logo.svg" alt="logo">
+            </div>
+            <div [ngClass]="{ 'active': isActive('home') }" class="icon-container">
+                <a routerLink="./home"><img id="btn-home" src="../../assets/icons/home.svg" alt="home"></a>
+            </div>
+            <div [ngClass]="{ 'active': isActive('profile') }" class="icon-container">
+                <a routerLink="./profile"><img id="btn-profile" src="../../assets/icons/profile.svg" alt="perfil"></a>
+            </div>
+            <div [ngClass]="{ 'active': isActive('mep') }" class="icon-container">
+                <a routerLink="./mep"><img id="btn-mep" src="../../assets/icons/mep.svg" alt="calendario"></a>
+            </div>
+            <div [ngClass]="{ 'active': isActive('download') }" class="icon-container">
+                <a routerLink="./download"><img id="btn-download" src="../../assets/icons/download.svg" alt="download"></a>
+            </div>
+            <div class="icon-container" id="exit-icon">
+                <a (click)='logout()'><img src="../../assets/icons/exit.svg" alt="sair"></a>
+            </div>
+        </div>
+
+        <div *ngIf="longBar == true && !isMobile" class="long-bar">
+            <div class="option-container" id="logo">
+                <div class="icon-container">
+                    <img id="btn-logo" src="/assets/logo.svg" alt="logo">
+                </div>
+                <div class="text-container" id="logo-text-container">
+                    <img id="logo-text" src="/assets/main-text.svg" alt="texto da logo">
+                </div>
+            </div>
+            <div [ngClass]="{ 'active': isActive('home') }" routerLink="./home" class="option-container">
+                <div class="icon-container">
+                    <a><img id="btn-home" src="../../assets/icons/home.svg" alt="home"></a>
+                </div>
+                <div class="text-container">
+                    <a class="option" id="home">Home</a>
+                </div>
+            </div>
+            <div [ngClass]="{ 'active': isActive('profile') }" routerLink="./profile" class="option-container">
+                <div class="icon-container">
+                    <a><img id="btn-profile" src="../../assets/icons/profile.svg" alt="perfil"></a>
+                </div>
+                <div class="text-container">
+                    <a class="option" id="profile">Perfil</a>
+                </div>
+            </div>
+            <div [ngClass]="{ 'active': isActive('mep') }" routerLink="./mep" class="option-container">
+                <div class="icon-container">
+                    <a><img id="btn-mep" src="../../assets/icons/mep.svg" alt="calendario"></a>
+                </div>
+                <div class="text-container">
+                    <a class="option" id="mep">Mep</a>
+                </div>
+            </div>
+            <div [ngClass]="{ 'active': isActive('download') }" routerLink="./download" class="option-container">
+                <div class="icon-container">
+                    <a><img id="btn-download" src="../../assets/icons/download.svg" alt="download"></a>
+                </div>
+                <div class="text-container">
+                    <a class="option" id="download">Download</a>
+                </div>
+            </div>
+
+            <div class="option-container" id="fill">
+                <div class="icon-container"></div>
+                <div class="text-container"></div>
+            </div>
+
+            <div class="option-container" id="exit-container">
+                <div class="icon-container">
+                    <a><img id="btn-exit" src="../../assets/icons/exit.svg" alt="sair"></a>
+                </div>
+                <div class="text-container">
+                    <a class="option" id="exit" (click)="logout()">Sair</a>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isMobile" id="menu" (click)="longBar = !longBar">
+            <img id="btn-menu" src="../../assets/icons/menu.svg" alt="menu">
+        </div>
+
+        <div class="sidenav-mobile" *ngIf="isMobile" >
+            <mat-drawer-container class="example-container" [hasBackdrop]="true" >
+                <mat-drawer #drawer >                    
+                    <div class="long-bar">
+                        <div class="option-container" id="logo">
+                            <div class="icon-container">
+                                <img id="btn-logo" src="/assets/logo.svg" alt="logo">
+                            </div>
+                            <div class="text-container" id="logo-text-container">
+                                <img id="logo-text" src="/assets/main-text.svg" alt="texto da logo">
+                            </div>
+                        </div>
+                        <div [ngClass]="{ 'active': isActive('home') }" routerLink="./home" class="option-container">
+                            <div class="icon-container">
+                                <a><img id="btn-home" src="../../assets/icons/home.svg" alt="home"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="home">Home</a>
+                            </div>
+                        </div>
+                        <div [ngClass]="{ 'active': isActive('profile') }" routerLink="./profile" class="option-container">
+                            <div class="icon-container">
+                                <a><img id="btn-profile" src="../../assets/icons/profile.svg" alt="perfil"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="profile">Perfil</a>
+                            </div>
+                        </div>
+                        <div [ngClass]="{ 'active': isActive('mep') }" routerLink="./mep" class="option-container">
+                            <div class="icon-container">
+                                <a><img id="btn-mep" src="../../assets/icons/mep.svg" alt="calendario"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="mep">Mep</a>
+                            </div>
+                        </div>
+                        <div [ngClass]="{ 'active': isActive('download') }" routerLink="./download" class="option-container">
+                            <div class="icon-container">
+                                <a><img id="btn-download" src="../../assets/icons/download.svg" alt="download"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="download">Download</a>
+                            </div>
+                        </div><!--
+                        <div class="option-container">
+                            <div class="icon-container">
+                                <a><img id="btn-exit" src="../../assets/icons/exit.svg" alt="sair"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="exit" (click)="logout()">Sair</a>
+                            </div>
+                        </div>-->
+                        <div class="option-container" id="fill">
+                            <div class="icon-container"></div>
+                            <div class="text-container"></div>
+                        </div>
+            
+                        <div class="option-container" id="exit-container">
+                            <div class="icon-container">
+                                <a><img id="btn-exit" src="../../assets/icons/exit.svg" alt="sair"></a>
+                            </div>
+                            <div class="text-container">
+                                <a class="option" id="exit" (click)="logout()">Sair</a>
+                            </div>
+                        </div>
+                    </div>
+                </mat-drawer>
+                <mat-drawer-content style="display: flex;">
+                    <div id="menu" (click)="drawer.toggle()">
+                        <img id="btn-menu" src="../../assets/icons/menu.svg" alt="menu">
+                    </div>
+                    <div class="workspace-content">
+                        <router-outlet></router-outlet>
+                    </div>
+                </mat-drawer-content>
+              </mat-drawer-container>
+              
+        </div>
+
+    </div>
+
+    <div *ngIf="!isMobile" class="workspace-content">
+        <router-outlet></router-outlet>
+    </div>
+</body>

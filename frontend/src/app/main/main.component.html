@@ -1,0 +1,72 @@
+<body>
+    <app-header></app-header>
+    <section id="home">
+        <div class="text-hero">
+            <h1>A Melhor Opção para quem quer aprender de verdade!</h1>
+            <p>Tenha acesso agora às videoaulas e se prepare para o vestibular dos seus sonhos!</p>
+            <button id="assine" (click)="goToKiwify()">Assine já</button>
+        </div>
+        <img src="../../assets/images/logo-home.svg" alt="logo" id="home_logo">
+    </section>
+
+    <section id="show">
+        <div class="element-show">
+            <img class="icon" src="../../assets/icons/award.svg" alt="troféu">
+            <h1>O caminho para aprovação começa aqui</h1>
+            <p>Descomplicamos a física para o vestibular, com aulas claras e materiais didáticos objetivos. Tudo para facilitar o seu aprendizado!</p>
+        </div>
+        <div class="element-show">
+            <img id="bussula" class="icon" src="../../assets/icons/north.svg" alt="bússola">
+            <h1 id="bussula-text-h1">Orientação especializada ao aluno</h1>
+            <p id="bussula-text-p">Nosso curso oferece um mapa de estudos personalizado para você focar nos pontos chave e garantir sua aprovação.</p>
+        </div>
+        <div class="element-show">
+            <img id="seta" class="icon" src="../../assets/icons/boost.svg" alt="setas">
+            <h1 id="seta-text-h1">Maximizando Seu Desempenho</h1>
+            <p id="seta-text-p">Nossas listas de exercícios são personalizadas para consolidar o aprendizado, preparando você  para enfrentar o vestibular com confiança.</p>
+        </div>
+    </section>
+
+    <section id="mep">
+        <div class="element-mep">
+            <img id="table" src="../../assets/images/lessons.png" alt="lessons">
+        </div>
+        <div class="element-mep">
+            <h1>Mapa de Estudos Personalizado</h1>
+            <p>O MEP é uma ferramenta que guia o aluno durante sua preparação, fornecendo um cronograma automático dos assuntos a serem estudados. Tudo isso levando em conta o seu tempo disponível para estudo!</p>
+        </div>
+    </section>
+
+    <section id="professor">
+        <div class="element-professor">
+            <h1>Professor Thiago Silva</h1>
+            <div id="rect"></div>
+                <p>Sou professor de Física na cidade de Natal-RN, há 4 anos. Dou aula desde os 18 anos, com vasta experiência em ENEM e  vestibulares militares, atuando principalmente como mentor.
+                <p>Desde 2019 venho realizando mentorias online, a fim de ajudar os alunos a desenvolverem melhores hábitos de estudo, e terem um novo olhar sobre o processo de aprendizagem de Física e Matemática.</p>
+                <p>Assim como você, eu também já  fui péssimo na área de "exatas". Matemática e Física foram, sem dúvida, uma pedrinha no meu sapato. Por isso, defendo que não existe uma aptidão nata para tais disciplinas, mas que, com a metodologia correta , você pode aprendê-las. Nesse sentido, meus cursos e mentorias foram elaborados com uma metodologia que rompe com o método de ensino tradicional, proporcionando uma aprendizagem mais eficiente em menor tempo.</p>
+        </div>
+        <div class="element-professor">
+            <img id="photo" src="../../assets/images/Thiago.png" alt="Thiago Silva">
+        </div>
+    </section>
+    <footer>
+        <div class="footer-element" id="left">
+            <img src="../../assets/logo-long_text.svg" alt="logo"/>
+            <a href="https://kiwify.com.br/"><button>ASSINE JÁ</button></a>
+        </div>
+        <div class="footer-element" id="right">
+            <div id="footer-text">
+                <a (click)="scrollToSection('home')">Home</a>
+                <a (click)="scrollToSection('mep')">Mep</a>
+                <a (click)="scrollToSection('professor')">Professor</a>
+                <a (click)="goToLogin()">Entrar</a>
+            </div>
+            <div id="rect2"></div>
+            <div id="footer-medias">
+                <a href="https://www.instagram.com/thiagosilva.fisica/"><img src="../../assets/icons/instagram.svg" alt="instagram"></a>
+                <a (click)="goToKiwify()"><img src="../../assets/icons/kiwify.webp" alt="kiwify"></a>
+                <a href="https://www.youtube.com/@fisicacomthiagosilva"><img src="../../assets/icons/youtube.svg" alt="youtube"></a>
+            </div>
+        </div>
+    </footer>
+</body>

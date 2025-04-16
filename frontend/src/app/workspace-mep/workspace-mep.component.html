@@ -1,0 +1,299 @@
+<div class="component-content d-flex justify-content-left">
+  <div class="container-fluid flex-fill d-flex flex-column">
+    <div class="title row">
+      <h1>Mapa de Estudos Personalizado</h1>
+    </div>
+
+    <ng-container *ngIf="contentLoaded ; then contentLoadedTemplate else contentLoadingTemplate"></ng-container>
+  </div>
+</div>
+
+<ng-template #contentLoadedTemplate>
+  <ng-container *ngIf="!hasMep || makingMep; then noMepTemplate; else hasMepTemplate">
+  </ng-container>
+</ng-template>
+
+<ng-template #contentLoadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #hasMepTemplate>
+  <app-mep-view [mepsMinimalIdObserver]="mepsMinimalIds$" [createMepSubject]="makingMepSubject">
+
+  </app-mep-view>
+
+</ng-template>
+
+<ng-template #noMepTemplate>
+  <div *ngIf="!started"
+    class="mep-container row flex-fill me-lg-4 mb-lg-4 mb-xl-5 me-xl-5 me-md-4 mb-md-4 me-sm-2 mb-sm-3 me-3 mb-4">
+    <div class="container d-flex flex-column">
+      <div class="row">
+        <div class="top-mep p-lg-4 p-md-3 p-sm-3 p-3">
+          <h1 class="mb-2">O que é o Mapa de Estudos Personalizado (MEP)?</h1>
+          <p class="mb-0">
+            O MEP é uma ferramenta que guia o aluno durante sua preparação,
+            fornecendo um cronograma automático dos assuntos a serem estudados. Tudo
+            isso levando em conta o seu tempo disponível para estudo!
+          </p>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center align-items-center flex-fill espaco-conteudo">
+        <div class="col-lg-5 col-md-7 col-sm-4 col-12 col order-2 order-sm-1 order-md-2 d-flex
+        justify-content-center align-items-center">
+          <div class="container mb-4">
+            <div class="row mb-xl-3">
+              <p class="text-mep-content text-center">Vamos começar o seu MEP?</p>
+              <p class="text-mep-content text-center">É rápido e prático!</p>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+              <div class="col-lg-5 mb-md-2 mb-sm-2 mb-2 d-flex justify-content-center">
+                <button class="start-btn" (click)="startMep()">Começar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-5 col-md-7 col-sm-4 mt-sm-5 mt-lg-0 col order-1 order-sm-2 order-md-1 d-flex justify-content-center">
+          <img src="../../assets/images/start-mep.svg" alt="Pessoas pensando no Mep" class="start-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="started"
+    class="mep-container row flex-fill me-lg-4 mb-lg-4 mb-xl-5 me-xl-5 me-md-4 mb-md-4 me-sm-2 mb-sm-3 me-3 mb-4">
+    <div class="container d-flex flex-column">
+      <div class="row">
+        <div class="top-mep p-lg-4 p-md-3 p-sm-3 p-3 d-flex justify-content-between">
+          <h1 class="mb-2 col-8">Criando o seu Mapa de Estudos Personalizado</h1>
+          <button *ngIf="hasMep && !completed" class="btn-ver-meps mb-0 me-lg-2" (click)="showMeps()">
+            Ver MEPs
+          </button>
+          <button *ngIf="hasMep && completed" class="btn-ver-meps mb-0 me-lg-2 col-2" (click)="backToMeps()">
+            Ver MEPs
+          </button>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center align-items-start flex-fill espaco-conteudo">        
+        <mat-stepper labelPosition="bottom" [linear]="true" [selectedIndex]="selectedStep"
+          (selectionChange)="checkStep($event)" [orientation]="(stepperOrientation | async)!"
+          class="p-0 p-sm-0 p-lg-5 pb-lg-0 pt-lg-3" #stepper>
+          <mat-step [stepControl]="dates">
+            <form [formGroup]="dates" style="width: fit-content;">
+              <ng-template matStepLabel> Defina as datas de início e fim</ng-template>                                                    
+              <div class="container mt-lg-5">
+                <div class="row d-flex align-items-center justify-content-center">
+                  <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <img src="../../assets/images/calendar-mep.png" alt="calendário" id="calendar" />
+                  </div>
+                  <div class="col-lg-1 col-md-0 col-0">
+
+                  </div>
+                  <div class="col-lg-5">
+                    <span class="span-step text-center d-flex justify-content-center">Defina as datas que você desejar iniciar e terminar os seus
+                      estudos.</span>
+                    <div class="input-group d-flex justify-content-center container">
+                      <div class="row d-flex justify-content-center">
+                        <div class="input col-lg-12 d-flex flex-column justify-content-center">
+                          <p class="mb-0 mt-3 text-center">Data Inicial</p>
+                          <mat-form-field>
+                            <mat-label>Escolha uma data</mat-label>
+                            <input matInput [matDatepicker]="datepicker1" formControlName="startDate" />
+                            <mat-hint style="font-size: 11px;">mm/dd/aaaa</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker1></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                        <div class="input col-lg-12 d-flex flex-column justify-content-center">
+                          <p class="mb-0 mt-3 text-center">Data Final</p>
+                          <mat-form-field>
+                            <mat-label>Escolha uma data</mat-label>
+                            <input matInput [matDatepicker]="datepicker2" formControlName="endDate"/>
+                            <mat-hint style="font-size: 11px;">mm/dd/aaaa</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker2></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="check-alarm" *ngIf="dates.invalid">
+                      <div *ngIf="dates.invalid" class="alert m-0 p-2">
+                        <div *ngIf="dates.errors?.['invalidDateType']" class="d-flex p-2 justify-content-left">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/icons/x.svg" alt="erro" />
+                          </div>
+                          <div class="d-flex align-items-center ms-lg-2">
+                            <p class="text-center m-0">Forneça uma data</p>
+                          </div>
+                        </div>
+                        <div *ngIf="dates.errors?.['startDateError']" class="d-flex p-2 justify-content-left">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/icons/x.svg" alt="erro" >
+                          </div>
+                          <div class="d-flex align-items-center ms-lg-2" >
+                            <p class="text-center m-0">Forneça uma data inicial a partir da data atual</p>
+                          </div>
+                        </div>
+                        <div *ngIf="dates.errors?.['rangeDaysError']" class="d-flex p-2 justify-content-left">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/icons/x.svg" alt="erro" />
+                          </div>
+                          <div class="d-flex align-items-center ms-lg-2">
+                            <p class="text-center m-0">Data final menor que a inicial</p>
+                          </div>
+                        </div>
+                        <div *ngIf="dates.errors?.['rangeMonthOver']" class="d-flex p-2 justify-content-left">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/icons/x.svg" alt="erro" />
+                          </div>
+                          <div class="d-flex align-items-center ms-lg-2">
+                            <p class="text-center m-0">Selecione menos de 30 semanas</p>
+                          </div>
+                        </div>
+                        <div *ngIf="dates.errors?.['rangeMonthUnder']" class="d-flex p-2 justify-content-left">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/icons/x.svg" alt="erro" />
+                          </div>
+                          <div class="d-flex align-items-center ms-lg-2">
+                            <p class="text-center m-0">Selecione pelo menos 15 semanas</p>
+                          </div>
+                        </div>
+                      </div>                      
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="d-flex flex-row-reverse">
+                  <div class="next">
+                    <button mat-button matStepperNext [disabled]="dates.invalid" class="next-btn">
+                      Próximo
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="hoursWeek" label="Configure sua semana">
+            <form [formGroup]="hoursWeek" id="step-2">
+              <span>Escolha quais dias da semana você estudará e quantas horas por
+                dia.</span>
+              <h2>
+                Você deve contar com pelo menos 4 horas de estudo por semana.
+              </h2>
+              <section class="week-section">
+                <div class="week-group">
+                  <mat-checkbox class="week-check" formControlName="segunda" style="background-color: #b51c1c">
+                    <p>Segunda</p>
+                  </mat-checkbox>
+                  <mat-checkbox class="week-check" formControlName="terca" style="background-color: #ff8548">
+                    <p>Terça</p>
+                  </mat-checkbox>
+                  <mat-checkbox class="week-check" formControlName="quarta" style="background-color: #dbc500">
+                    <p>Quarta</p>
+                  </mat-checkbox>
+                </div>
+                <div class="week-group">
+                  <mat-checkbox class="week-check" formControlName="quinta" style="background-color: #6b1cbd">
+                    <p>Quinta</p>
+                  </mat-checkbox>
+                  <mat-checkbox class="week-check" formControlName="sexta" style="background-color: #027afe">
+                    <p>Sexta</p>
+                  </mat-checkbox>
+                  <mat-checkbox class="week-check" formControlName="sabado" style="background-color: #03c9ca">
+                    <p>Sábado</p>
+                  </mat-checkbox>
+                  <mat-checkbox class="week-check" formControlName="domingo" style="background-color: #028a01">
+                    <p>Domingo</p>
+                  </mat-checkbox>
+                </div>
+              </section>
+              <div>
+                <div class="input">
+                  <h2>Horas diárias de estudo:</h2>
+                  <mat-slider min="{{ minNumberHours }}" max="{{ maxNumberHours }}" step="0.5" showTickMarks="showTicks"
+                    discrete="thumbLabel" [displayWith]="formatLabel">
+                    <input matSliderThumb formControlName="hours" />
+                  </mat-slider>
+                  <mat-hint>Você estudará {{ hoursWeek.get("hours")?.value * daysNumber}} horas por
+                    semana.</mat-hint>
+                </div>
+              </div>
+              <div class="continue">
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button matStepperNext [disabled]="hoursWeek.invalid">
+                  Próximo
+                </button>
+              </div>
+            </form>
+          </mat-step>
+          <!--
+
+          <mat-step
+            [stepControl]="lessonsSelection"
+            label="Remova conteúdos já estudados"
+          >
+            <form [formGroup]="lessonsSelection">
+              <section class="lessons-section">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                    <button mat-icon-button disabled></button>
+                    <mat-checkbox
+                      [checked]="getCompleted(node)"
+                      [color]="getColor(node)"
+                      (change)="complete(node)"
+                    >
+                      {{ node.name }}
+                    </mat-checkbox>
+                  </mat-tree-node>
+                  <mat-tree-node
+                    *matTreeNodeDef="let node; when: hasChild"
+                    matTreeNodePadding
+                  >
+                    <button
+                      mat-icon-button
+                      matTreeNodeToggle
+                      [attr.aria-label]="'Toggle ' + node.name"
+                    >
+                      <mat-icon class="mat-icon-rtl-mirror">
+                        {{
+                          treeControl.isExpanded(node)
+                            ? "expand_more"
+                            : "chevron_right"
+                        }}
+                      </mat-icon>
+                    </button>
+                    {{ node.name }}
+                  </mat-tree-node>
+                </mat-tree>
+              </section>
+              <div class="continue">
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button matStepperNext>Próximo</button>
+              </div>
+            </form>
+          </mat-step>
+        -->
+          <mat-step>
+            <ng-template matStepLabel>Seu MEP está pronto!</ng-template>
+            <div *ngIf="!completed" class="loading-spinner">
+              <mat-spinner></mat-spinner>
+            </div>
+            <div *ngIf="completed" class="completed">
+              <img src="../../assets/images/completed.png" alt="completado" />
+              <div class="mep-group">
+                <h1>o seu MEP está pronto!</h1>
+                <button class="start-btn" (click)="backToMeps()">Ver MEP</button>
+                <button class="start-btn" (click)="goToDownloadMepPage()">Baixar MEP</button>
+              </div>
+            </div>
+          </mat-step>
+        </mat-stepper>
+      </div>
+    </div>
+  </div>
+</ng-template>

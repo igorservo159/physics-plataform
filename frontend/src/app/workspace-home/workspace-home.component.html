@@ -1,0 +1,59 @@
+<div class="component-content d-flex justify-content-left">
+  <div class="container-fluid flex-fill d-flex flex-column">
+    <div class="title row">
+      <h1>Portal Física com Thiago Silva</h1>
+    </div>
+    
+    <ng-container *ngIf="contentLoaded ; then contentLoadedTemplate else contentLoadingTemplate"></ng-container>
+  </div>    
+</div>
+
+
+
+<ng-template #contentLoadedTemplate>
+  <div class="mep-container row flex-fill me-lg-4 mb-lg-4 mb-xl-5 me-xl-5 me-md-4 mb-md-4 me-sm-2 mb-sm-3 me-3 mb-4">
+    <div class="container d-flex flex-column">
+      <div class="row">
+        <div class="top-mep p-lg-4 p-md-3 p-sm-3 p-3">
+          <h1 class="mb-2">Bem vindo, {{name}}!</h1>
+          <p class="mb-0">
+              Parabéns por adquirir o curso Física com Thiago Silva! Vamos juntos trilhar o caminho da sua aprovação! Neste site você pode criar o seu
+              Mapa de Estudos Personalizado para organizar seus estudos de forma eficiente.
+          </p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center flex-fill ">        
+        <div class="col-lg-5 col-md-4 col-sm-4 col-12 col order-2 order-sm-1 d-flex
+        justify-content-center align-items-center">
+          <div class="container mb-4">
+            <div class="row mb-xl-3">
+              <p class="text-mep-content text-center">Para onde deseja ir?</p>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+              <div class="col-lg-5 mb-md-2 mb-sm-2 mb-2 d-flex justify-content-center">
+                <button id="start-btn" (click)="goToMep()">Acessar MEP</button>
+              </div>
+              <div class="col-lg-5 d-flex justify-content-center">
+                <button id="start-btn" (click)="goToClasses()">Acessar Aulas</button>
+              </div>              
+            </div>
+          </div>                    
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-4 mt-sm-5 col order-1 order-sm-2 d-flex justify-content-center">
+          <img
+              src="../../assets/images/logo-home.svg"
+              alt="Logo FTS"
+              class="logo-img"
+            />
+        </div>        
+      </div>
+    </div>        
+  </div>
+</ng-template>
+
+<ng-template #contentLoadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>  
+</ng-template>
+

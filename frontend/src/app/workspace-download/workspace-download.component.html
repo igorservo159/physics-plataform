@@ -1,0 +1,82 @@
+<div class="component-content d-flex justify-content-left">
+  <div class="container-fluid flex-fill d-flex flex-column">
+    <div class="title row">
+      <h1>Portal Física com Thiago Silva</h1>
+    </div>
+    
+    <ng-container *ngIf="contentLoaded ; then contentLoadedTemplate else contentLoadingTemplate"></ng-container>
+  </div>    
+</div>
+
+<ng-template #contentLoadedTemplate>
+  <div class="mep-container row flex-fill me-lg-4 mb-lg-4 mb-xl-5 me-xl-5 me-md-4 mb-md-4 me-sm-2 mb-sm-3 me-3 mb-4">
+    <div class="container d-flex flex-column">
+      <div class="row">
+        <div class="top-mep p-lg-4 p-md-3 p-sm-3 p-3">
+          <h1 class="mb-2">Baixe o PDF do seu MEP!</h1>        
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center flex-fill">
+        <div *ngIf="loadingMep ; then loadingMepTemplate else mepLoadedTemplate"></div>        
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #contentLoadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>  
+</ng-template>
+
+
+
+<ng-template #hasMepTemplate>
+  <div class="mt-2 col-lg-5 col-md-4 col-sm-4 col-12 col order-2 order-sm-1 d-flex justify-content-center align-items-center">
+    <div class="container mb-4">
+      <div class="row mb-xl-3">
+        <p class="text-mep-content text-center">Clique em um mep abaixo para fazer o download!</p>
+      </div>
+      <div *ngFor="let mep of meps" class="row d-flex align-items-center justify-content-center">
+        <button class="col-12 mb-2 download-btn justify-content-center py-1" (click)="downloadMep(mep)">
+          {{mep.entranceExam}}, Data de Criação: {{mep.createdAt}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2 col-lg-5 col-md-5 col-sm-4 mt-sm-5 col order-1 order-sm-2 d-flex justify-content-center">
+    <img
+      src="../../assets/images/download-mep.png"
+      alt="Download MEP"
+      class="logo-img"
+    />
+  </div>
+</ng-template>
+
+<ng-template #noMepTemplate>
+    <div class="mt-2 col-lg-5 col-md-4 col-sm-4 col-12 col order-2 order-sm-1 d-flex justify-content-center align-items-center">
+      <div class="container mb-4">
+        <div class="row mb-xl-3">
+          <p class="text-mep-content text-center">Parece que você ainda não possui um MEP...</p>
+        </div>
+        <div class="row d-flex align-items-center justify-content-center">
+          <button class="col-12 mb-2 start-btn justify-content-center py-1" (click)="fazerMep()">Fazer MEP</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 col-lg-5 col-md-5 col-sm-4 mt-sm-5 col order-1 order-sm-2 d-flex justify-content-center">
+      <img
+      src="../../assets/images/empty.png"
+      alt="Empty MEP"
+      class="logo-img"
+      />
+    </div>
+</ng-template>
+
+<ng-template #loadingMepTemplate>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+<ng-template #mepLoadedTemplate>
+  <div *ngIf="hasMep ; then hasMepTemplate else noMepTemplate"></div>
+</ng-template>

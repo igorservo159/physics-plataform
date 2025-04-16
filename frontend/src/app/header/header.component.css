@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'Inria Sans';
+    src: url('../../assets/fonts/Inria_Sans/InriaSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+
+
+@font-face {
+    font-family: 'Inria Sans';
+    src: url('../../assets/fonts/Inria_Sans/InriaSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Inria Sans';
+    src: url('../../assets/fonts/Inria_Sans/InriaSans-Light.ttf') format('truetype');
+    font-weight: lighter;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+header {
+    width: 100%;
+    height: 3.722vw;
+    background-color: #283D3E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.167vw;
+    z-index: 1000;
+    position: fixed;
+    transition: top 0.3s;
+    border-bottom: 0.069vw solid gray;
+}
+
+nav{
+    margin-right: 8.889vw;
+}
+
+nav ul li {
+    margin-top: 1.3vw;
+    display: inline-block;
+    margin-right: 10vw;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    font-weight: bold;
+    background-color: #FFFFC0;
+    color: black;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 8.333vw;
+    height: 1.875vw;
+    font-size: 1.117vw;
+    margin-right: 5.556vw;
+    border-radius: 0.729vw;
+}
+
+#entrar {
+    transition: background-color 0.5s ease;
+    background-color: #eaea7c;
+}
+
+.option {
+    position: relative;
+    text-decoration: none;
+}
+
+.option::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.139vw;
+    width: 0;
+    height: 0.13vw;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.option:hover::after {
+    width: 100%;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.logo {
+    width: 8.889vw;
+    height: 5.556vw;
+    margin-left: 5.556vw;
+}
+
+.sidenav{
+    position: absolute;
+    left: -9999999px;
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        font-size: 1.563vw;
+        width: 100vw;
+        height: 9.44vw;
+    }
+
+    .logo {
+        margin-left: 5.208vw;
+        width: 17vw;
+        height: auto;
+    }
+
+    button {
+        width: 15.234vw;
+        height: 3.385vw;
+        font-size: 1.563vw;
+        margin-right: 10.417vw;
+        border-radius: 1vw;
+    }
+
+    .nav-bar{
+        margin-right: 3vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header{
+        height: 14vw;
+    }
+    #entrar{
+        position: absolute;
+        width: 29.647vw;
+        height: 6.588vw;
+        font-size: 2.824vw;
+        margin-left: 60vw;
+        border-radius: 1.647vw;
+    }
+    
+    .logo{
+        position: relative;
+        left: 12vw;
+        width: 30.118vw;
+        height: 18.824vw;
+
+    }
+
+    .nav-bar{
+        position: absolute;
+        display: none;
+    }
+
+    .sidenav{
+        position: absolute;
+        left: -47.059vw;
+        width: 11.765vw;
+        height: auto;
+
+    }
+
+    #sideMenu{
+        border-radius: 2.353vw;
+        position: absolute;
+        display: flex;
+        height: 7vw;
+        width: 7vw;
+        left: 50.118vw;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    mat-icon{
+        position: absolute;
+    }
+
+    mat-toolbar{
+        position: relative;
+        z-index: 5;
+    }
+
+    mat-sidenav-container{
+        width: 14.118vw;
+        position: fixed;
+        left: -0.235vw;
+        height: 100vh;
+    }
+
+    mat-sidenav{
+        overflow: hidden !important;
+        position: fixed;
+        left: -0.235vw;
+        background-color: #283D3E;
+        height: 100vh;
+    }
+
+    
+}

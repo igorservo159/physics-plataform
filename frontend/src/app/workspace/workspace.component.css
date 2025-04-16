@@ -1,0 +1,279 @@
+body {
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+}
+
+a {
+    display: flex;
+    align-items: center;
+}
+
+#bar {
+    display: flex;
+}
+
+/*SHORT BAR*/
+
+.short-bar {
+    width: 4.101vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #283D3E;
+}
+
+.icon-container img{
+    width: 2.344vw;
+    height: 2.344vw;
+}
+
+
+
+/*LONG BAR*/
+
+.long-bar {
+    width: 16.524vw;
+    height: 100vh;
+    background-color: #283D3E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo-text-container {
+    padding: 0;
+}
+
+#logo-text-container img{
+    width: 8.73vw;
+    height: auto;
+}
+
+.option-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#logo {
+    cursor: default;
+}
+
+.icon-container {
+    display: flex;
+    padding-bottom: 0.792vw;
+    padding-top: 0.792vw;
+    width: 4.101vw;
+    align-items: center;
+    justify-content: center;
+    border-right: 0.059vw solid #172525;
+}
+
+.text-container {
+    display: flex;
+    padding-bottom: 0.792vw;
+    padding-top: 0.792vw;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.text-container a {
+    text-decoration: none;
+}
+
+
+.option {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.172vw;
+    color: white;
+}
+
+#fill{
+    flex: 1;
+    cursor: default;
+}
+
+#fill .icon-container {
+    height: 100%;
+}
+
+#exit-container {
+    margin-top: auto;
+    background-color: #D62E2E;
+}
+
+#exit-icon {
+    margin-top: auto;
+    background-color: #D62E2E;
+}
+
+.active {
+    background-color: #48586F;
+}
+
+/*MENU*/
+
+#menu {
+    width: 4.101vw;
+    height: 3.633vw;
+    cursor: pointer;
+}
+
+#btn-menu {
+    width: 1.758vw;
+    height: 1.289vw;
+    margin: 1.172vw;
+}
+
+/*CONTENT*/
+
+.workspace-content {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .short-bar {
+        width: 3.554vw;
+        height: 100vh;
+    }
+    
+    .icon-container img{
+        width: 2.032vw;
+        height: 2.032vw;
+    }
+    
+    
+    /*LONG BAR*/
+    
+    .long-bar {
+        width: 14.321vw;
+        height: 100vh;
+    }
+    
+    #logo-text-container img{
+        width: 7.566vw;
+        height: auto;
+    }
+    
+    .icon-container {
+        padding-bottom: 0.686vw;
+        padding-top: 0.686vw;
+        width: 3.554vw;
+        border-right: 0.051vw solid #172525;
+    }
+    
+    .text-container {
+        padding-bottom: 0.686vw;
+        padding-top: 0.686vw;
+    }
+    
+    .option {
+        font-size: 1.015vw;
+    }
+
+    /*MENU*/
+    
+    #menu {
+        width: 3.554vw;
+        height: 3.149vw;
+    }
+    
+    #btn-menu {
+        width: 1.54vw;
+        height: 1.117vw;
+        margin: 1.015vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #btn-menu {
+        width: 5vw;
+        height: 5vw;
+        margin-left: 3vw;
+        margin-top: 2.5vw;
+    }    
+}
+
+@media screen and (max-width: 480px) {
+    .short-bar {
+        width: 6.930vw;
+        height: 100vh;
+    }
+    
+    .icon-container img{
+        width: 9vw;
+        height: 9vw;
+    }
+    
+    
+    /*LONG BAR*/
+    
+    .long-bar {
+        width: 60vw;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    #logo-text-container img{
+        width: 20vw;
+        height: auto;
+    }
+    
+    .icon-container {
+        padding-bottom: 1.338vw;
+        padding-top: 1.338vw;
+        width: 14vw;
+        border-right: 0.099vw solid #172525;
+    }
+    
+    .text-container {
+        padding-bottom: 1.338vw;
+        padding-top: 1.338vw;
+    }
+
+    .text-container a{
+        font-size: 5vw;
+        text-decoration: none;
+    }
+    
+    .option {
+        font-size: 2.283vw;
+    }
+
+    .option-container {
+        font-size: 2.283vw;
+    }
+
+    /*MENU*/
+    
+    #menu {
+        width: 6.930vw;
+        height: 6.143vw;
+    }
+    
+    #btn-menu {
+        width: 5vw;
+        height: 5vw;
+        margin-left: 3vw;
+        margin-top: 2.5vw;
+    }        
+}
+
+.sidenav-mobile{
+    display: flex;
+}
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+  

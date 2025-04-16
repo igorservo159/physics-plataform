@@ -1,0 +1,117 @@
+<body class="d-flex align-items-center">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-9 col-sm-9 col-md-9 col-lg-6 main-login p-0" [hidden]="recoverBtnHtml">
+                <div class="container-fluid">
+                    <div class="row top-login">
+                        <div class="col-3 d-flex align-items-center justify-content-center">
+                            <button id="back" (click)="goToCore()">
+                                <img src="../../assets/icons/arrow-back.svg" alt="voltar" style="color: pink;">
+                            </button>
+                        </div>
+                        <div class="col-6 d-flex align-items-center justify-content-center p-2 p-md-2 p-lg-2 p-xl-3">
+                            <h1>Login</h1>
+                        </div>                                            
+                    </div>
+                </div>
+                <div class="row bottom-login">
+                    <div class="col-10 col-md-9 d-flex align-items-center justify-content-center">
+                        <form [formGroup]="loginUser" class="w-100">
+                            <p id="subtitle">Monte agora seu mapa de estudos personalizado!</p>
+                            <mat-form-field>
+                                <input matInput placeholder="Email" type="text" name="email" autocomplete="email"
+                                    formControlName="email" style="height: 3vh">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" type="text"
+                                    name="password" autocomplete="current-password"
+                                    formControlName="password" style="height: 3vh"
+                                    (keydown.enter)="login()">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                    [attr.aria-pressed]="hide" type="button">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            <a (click)="recoverPassword()" id="subtitle">Recuperar Senha</a>
+                            <button type="submit" id="login-btn" (click)="login()" [disabled]="loggingIn" class="mb-4 w-50">Acessar</button>
+                        </form>
+                    </div>                    
+                </div>                
+            </div>
+            <div class="row" [hidden]="!recoverBtnHtml">
+                <div class="col">
+                    <app-recover-password [recoverBtn]="recoverBtn"></app-recover-password>
+                </div>                
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--
+    <div class="top-login">
+                        <div style="    display: flex;
+                        flex: 1; justify-content: center; align-items: center;">
+                            <button id="back" (click)="goToCore()">
+                                <img src="../../assets/icons/arrow-back.svg" alt="voltar" style="color: pink;">
+                            </button>
+
+                        </div>
+                        <h1>Login</h1>
+                        <div style="flex: 1;"></div>
+                    </div>
+                    <div class="bottom-login">
+                        <form [formGroup]="loginUser">
+                            <p>Monte agora seu mapa de estudos personalizado!</p>
+                            <mat-form-field>
+                                <input matInput placeholder="Email" type="text" name="email" autocomplete="email"
+                                    formControlName="email">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" type="text"
+                                    name="password" autocomplete="current-password" formControlName="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            <a (click)="recoverPassword()">Recuperar Senha</a>
+                            <button id="login-btn" (click)="login()" [disabled]="loggingIn">Acessar</button>
+                        </form>
+                    </div>
+                    <div [hidden]="!recoverBtnHtml">
+                    <app-recover-password [recoverBtn]="recoverBtn"></app-recover-password>
+                </div>
+
+    <div [hidden]="recoverBtnHtml" class="main-login" (keydown.enter)="login()">
+                    <div class="top-login">
+                        <div style="    display: flex;
+                        flex: 1; justify-content: center; align-items: center;">
+                            <button id="back" (click)="goToCore()">
+                                <img src="../../assets/icons/arrow-back.svg" alt="voltar" style="color: pink;">
+                            </button>
+            
+                        </div>
+                        <h1>Login</h1>
+                        <div style="flex: 1;"></div>
+                    </div>
+                    <div class="bottom-login">
+                        <form [formGroup]="loginUser">
+                            <p>Monte agora seu mapa de estudos personalizado!</p>
+                            <mat-form-field>
+                                <input matInput placeholder="Email" type="text" name="email" autocomplete="email" formControlName="email">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" type="text" name="password" autocomplete="current-password" formControlName="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                              </mat-form-field>
+                            <a (click)="recoverPassword()">Recuperar Senha</a>
+                            <button id="login-btn" (click)="login()" [disabled]="loggingIn">Acessar</button>
+                        </form>
+                    </div>
+                </div>
+                <div [hidden]="!recoverBtnHtml">
+                    <app-recover-password [recoverBtn]="recoverBtn"></app-recover-password>
+                </div>
+-->

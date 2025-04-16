@@ -1,0 +1,81 @@
+<div class="component-content">
+  <div class="title">
+    <h1>Portal Física com Thiago Silva</h1>
+  </div>
+
+  <ng-container *ngIf="contentLoaded ; then contentLoadedTemplate else contentLoadingTemplate">
+
+  </ng-container>
+
+</div>
+
+<ng-template #contentLoadedTemplate>
+  <div class="mep-container">
+  <div class="container d-flex flex-fill flex-column" style="max-width: none;">
+    <div class="row" id="top-mep">
+      <h1>{{name}}</h1>
+    </div>
+
+      <div class="row mt-4 mt-md-5 mb-md-5 d-flex justify-content-center" id="upper-row">
+        <div class="col-12 col-md-5 col-lg-4 col-xl-3 d-flex profile-info">
+          <div class="container d-flex flex-fill flex-column">
+            <div class="row d-flex justify-content-center">
+              <img src="../../assets/images/user_icon.png" alt="User Icon" class="icon-img">
+            </div>
+            
+            <div class="row mt-3">
+              <h2 id="email">{{email}}</h2>
+            </div>
+
+          </div>
+          
+          
+        </div>
+
+        <div class="col-0 col-md-1"></div>
+
+        <div class="col-4 col-md-5 col-xl-3 angular-form" style="height: 40vh;">
+          <form [formGroup]="inputs">
+            <mat-form-field>
+              <mat-label>Nome</mat-label>
+              <input matInput formControlName="name" style="height: 5vh">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Curso</mat-label>
+              <mat-select value="one" formControlName="curso" style="height: 5vh">
+                <mat-option value="one" >ENEM</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+
+        </div>
+
+      </div>
+
+      <div class="row d-flex justify-content-center" id="lower-row" style="min-width: 0px;">
+
+
+        <div class="col-4 col-md-4 col-lg-3 col-xl-3 button-profile" style="min-width: 0px;">
+          <button id="start-btn" (click)="openDialog()">Alterar senha</button>
+
+        </div>
+
+        <div class="col-0 col-md-2 col-lg-3 col-xl-1"></div>
+
+        <div class="col-4 col-md-4 col-lg-3 button-profile" style="min-width: 0px;">
+          <button id="start-btn" [disabled]="!isDirtyAndNotNull() || loadingChanges" (click)="changeUsername()">Salvar
+            alterações</button>
+        </div>
+
+      </div>
+
+  </div>
+  </div>
+</ng-template>
+
+<ng-template #contentLoadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

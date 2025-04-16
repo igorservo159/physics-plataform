@@ -1,0 +1,34 @@
+
+
+<header>
+<img class="logo" src="/assets/logo-long_text.svg" alt="logo">
+
+<mat-toolbar class="sidenav">
+    <button id="sideMenu" mat-icon-button (click)="collapsed.set(!(collapsed()))">
+        <mat-icon [ngStyle]="{'color':'black'}">menu</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container [style.width]="sidenavWidth()">
+    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+        <app-custom-sidenav></app-custom-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content class="contend">
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<nav class="nav-bar">
+    <ul>
+        <li [ngClass]="{ 'active': isActive('home') }">
+            <a class="option" (click)="scrollToSection('home')">HOME</a>
+        </li>
+        <li [ngClass]="{ 'active': isActive('mep') }">
+            <a class="option" (click)="scrollToSection('mep')">MEP</a>
+        </li>
+        <li [ngClass]="{ 'active': isActive('professor') }">
+            <a class="option" (click)="scrollToSection('professor')">PROFESSOR</a>
+        </li>
+    </ul>
+</nav>
+<button type="button" id="entrar" (click)="goToLogin()">Entrar</button>
+</header>

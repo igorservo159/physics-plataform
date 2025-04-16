@@ -1,0 +1,204 @@
+.title {
+  padding: 1.172vw;
+}
+
+.title h1 {
+  font-size: 1.25vw;
+}
+
+
+#mep-start {
+  height: auto;
+  align-items: center;
+}
+
+.mep-container {
+  box-shadow: 0px 0.156vw 9.766vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.586vw;
+}
+
+.top-mep {
+  background-color: #3C5C5D;
+  color: white;
+  border-radius: 0.586vw 0.586vw 0px 0px;
+}
+
+.top-mep p {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.mep-content {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  column-gap: 5vw;
+}
+
+.mep-group {
+  text-align: center;
+  align-items: center;
+  color: #31353A;
+}
+
+.text-mep-content {
+  font-size: 2vw;
+}
+
+#start-btn {
+  height: 4.266vw;
+  width: 20vw;
+  background-color: #3C5C5D;
+  color: white;
+  font-size: 1.5vw;
+  font-weight: bold;
+  border-radius: 3vw;
+}
+
+#start-btn:hover {
+  background-color: #314f50;
+}
+
+.logo-img {
+  width: 25vw;
+  height: auto;
+}
+
+.component-content {
+  height: 100%;
+  width: 100%;
+
+}
+
+.loading-spinner {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  /* Centraliza verticalmente */
+  justify-content: center;
+}
+
+
+@media only screen and (max-width: 1400px) {
+
+  .top-mep h1 {
+    font-size: 23px;
+    font-weight: bold;
+  }
+
+  .top-mep p {
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .logo-img {
+    width: 25vw;
+    height: auto;
+  }
+
+  .title h1 {
+    font-size: 20px
+  }
+
+  .top-mep h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .top-mep p {
+    font-size: 15px;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .logo-img {
+    width: 30vw;
+    height: auto;
+  }
+
+  .title h1 {
+    font-size: 20px
+  }
+
+  .top-mep h1 {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .top-mep p {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo-img {
+    width: 25vw;
+    height: auto;
+  }
+
+  .title h1 {
+    font-size: 20px
+  }
+
+  .top-mep h1 {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .top-mep p {
+    font-size: 11px;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .logo-img {
+    width: 70vw;
+    height: auto;
+  }
+
+  .title h1 {
+    margin-top: 1vw;
+    font-size: 18px;
+  }
+
+  .top-mep h1 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .top-mep p {
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .mep-container {
+    box-shadow: 0px 0.156vw 9.766vw rgba(0, 0, 0, 0.25);
+    border-radius: 2vw;
+  }
+
+  .top-mep {
+    background-color: #3C5C5D;
+    color: white;
+    border-radius: 2vw 2vw 0px 0px;
+  }
+
+  .text-mep-content {
+    font-size: 5vw;
+  }
+
+  #start-btn {
+    height: 8vw;
+    width: 40vw;
+    background-color: #3C5C5D;
+    color: white;
+    font-size: 4vw;
+    font-weight: bold;
+    border-radius: 8vw;
+  }
+}

@@ -1,0 +1,13 @@
+<div>
+    <div class="header-mobile">
+        <img id="btn-logo" src="/assets/logo.svg" alt="logo">
+        <img id="logo-text" src="/assets/main-text.svg" alt="texto da logo">
+    </div>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let item of menuItems()" (click)="scrollToSection(item.route)">
+            <mat-icon matListItemIcon [ngStyle]="{'color':'#FFFFC0'}" >{{item.icon}}</mat-icon>
+            <span matLis>{{item.label}}</span>
+            
+        </a>
+    </mat-nav-list>
+</div>

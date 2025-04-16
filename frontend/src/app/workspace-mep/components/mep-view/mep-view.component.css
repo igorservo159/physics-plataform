@@ -1,0 +1,121 @@
+.mep-container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 85%;
+  max-width: 95vw;
+  }
+
+  .top-mep {
+    display: flex;
+    height: 15%;
+    align-items: center;
+    background-color: #3C5C5D;
+    color: white;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  .top-mep h1 {
+    padding: 1vw;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+
+  .carousel-father{
+    height: 100%;
+    display: flex; 
+    flex: 1;   
+  }
+
+  .days-father{
+    height: 10vh;
+    display: flex;
+  }
+
+  .day-card{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+  }
+
+  .day-text{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 70%;
+  }
+
+  .day-text-inner{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    background-color: #3C5C5D;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+  }
+
+  .divider {
+    display: inline-block;
+    width: 1px; /* Largura do divisor */
+    height: 100%; /* Altura do divisor */
+    background-color: gray; /* Cor do divisor */
+  }
+
+  .carousel-control-father{
+    display: flex;
+    width: 15%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #48586F;
+  }
+
+  .carousel-control{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .carousel-control:hover{
+    cursor: pointer;
+  }
+
+  .mep-div{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1vw;
+    padding-top: 0vw;
+    
+  }
+
+  .example-card{
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .tab-btns {
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+
+  .mep-select{
+    display: flex;
+  }

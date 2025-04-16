@@ -1,0 +1,67 @@
+<div class="mep-container">
+    <div class="top-mep">
+      <h1>Siga seus estudos com a ajuda do Mapa de Estudos Personalizado!</h1>      
+    </div>
+    <ng-container *ngIf="loadingViewContent; then mepLoading; else viewContentLoaded">
+
+    </ng-container>
+      
+</div>
+
+<ng-template #viewContentLoaded>
+  <div class="mep-div">
+    <mat-card class="example-card ">
+      <mat-card-header>
+        <mat-card-title class="mep-select">          
+          <mat-form-field>
+            <mat-label>
+              MEP                        
+            </mat-label>            
+            <mat-select [(value)]="selectedMEP" (selectionChange)="reloadMep(selectedMEP['fullMepReference'])">
+              @for (mep of mepsMinimalId; track mep) {
+                <mat-option [value]="mep">{{mep['entranceExam']+" "+mep['createdAt']}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <div class="tab-btns">
+            <button mat-fab style="background-color: #3C5C5D; margin-left: 1vw;" aria-label="Delete MEP" (click)="openDialog(selectedMEP['id'])">
+              <mat-icon style="color: white;">delete</mat-icon>
+            </button>
+            <button mat-fab style="background-color: #3C5C5D; margin-left: 1vw;" aria-label="Criar MEP" (click)="newMep()">
+              <mat-icon style="color: white;">add</mat-icon>
+            </button>
+          </div>          
+        </mat-card-title>
+      </mat-card-header>
+        <ng-container *ngIf="loadingMepSelectedContent; then mepLoading; else mepContentLoaded">
+        </ng-container>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>            
+  </div> 
+
+  <ng-template #mepContentLoaded>
+    <mat-tab-group [(selectedIndex)]="initialTabIndex" >
+        <mat-selection-list 
+        #classList         
+        *ngFor="let day of days">
+          <mat-tab [label]="day['day'] + ' '+day['weekday']" (origin)="0">            
+            <mat-list-option 
+            *ngFor="let class of day.classes; let i = index" 
+            [selected]="class.check"
+            (click)="onStudyCheck(i)"
+            >
+              {{class.name}}              
+            </mat-list-option>
+          </mat-tab> 
+          
+          
+        </mat-selection-list>          
+      
+    </mat-tab-group>
+  </ng-template>  
+</ng-template>
+
+<ng-template #mepLoading>
+  <mat-spinner></mat-spinner>
+</ng-template>
