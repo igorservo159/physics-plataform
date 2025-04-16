@@ -11,8 +11,6 @@ config/prod/*
 
 .gitlab-ci.yml
 
-firebase.initialization.ts
-
 # Logs
 logs
 *.log
