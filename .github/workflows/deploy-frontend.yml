@@ -1,0 +1,49 @@
+name: Deploy Angular Frontend to Firebase
+
+on:
+  push:
+    paths:
+      - 'frontend/**'
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate environment.prod.ts
+        run: npx ts-node scripts/generate-env.ts
+        env:
+          NG_APP_FIREBASE_API_KEY: ${{ secrets.NG_APP_FIREBASE_API_KEY }}
+          NG_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.NG_APP_FIREBASE_AUTH_DOMAIN }}
+          NG_APP_FIREBASE_PROJECT_ID: ${{ secrets.NG_APP_FIREBASE_PROJECT_ID }}
+          NG_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.NG_APP_FIREBASE_STORAGE_BUCKET }}
+          NG_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NG_APP_FIREBASE_MESSAGING_SENDER_ID }}
+          NG_APP_FIREBASE_APP_ID: ${{ secrets.NG_APP_FIREBASE_APP_ID }}
+
+      - name: Build Angular App
+        run: npm run build -- --configuration=production
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          projectId: physics-plataform
