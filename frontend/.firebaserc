@@ -1,5 +1,7 @@
 {
   "projects": {
-    "production": "fts-temp-2d060"
-  }
+    "physics-plataform": "physics-plataform"
+  },
+  "targets": {},
+  "etags": {}
 }
