@@ -13,6 +13,7 @@ export const environment = {
     messagingSenderId: '${process.env.NG_APP_FIREBASE_MESSAGING_SENDER_ID}',
     appId: '${process.env.NG_APP_FIREBASE_APP_ID}',
   }
+  apiUrl: 'http://localhost:3000/'
 };
 `;
 
