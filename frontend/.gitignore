@@ -2,7 +2,7 @@
 
 .gitlab-ci.yml
 
-src/environments/*
+src/environments/environment.prod.ts
 !src/environments/.gitkeep
 
 # Compiled output
