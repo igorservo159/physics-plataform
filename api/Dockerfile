@@ -19,6 +19,7 @@ RUN npm install --only=production
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/config ./config
+COPY --from=builder /app/pdfs ./pdfs
 
 # Copia o entrypoint.sh do caminho correto
 COPY scripts/entrypoint.sh ./entrypoint.sh
