@@ -6,7 +6,7 @@ import { FirebaseAuthGuard } from './auth/firebase-auth.guard';
 
 @Controller()
 export class AppController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
@@ -25,5 +25,10 @@ export class AppController {
   getHello(@Request() req) {
     console.log(req.user.email);
     return 'hello ' + req.user.email;
+  }
+
+  @Get('status')
+  getStatus(): string {
+    return '✅ API ativa e funcionando!';
   }
 }
