@@ -7,6 +7,12 @@
 - 🎨 Frontend built with [Angular](https://angular.io/)  
 - 🗂️ Database managed with [Firebase](https://firebase.google.com/)
 
+## 🌐 Live Demo
+Access the deployed platform here:
+👉 [https://physics-plataform.web.app/](https://physics-plataform.web.app/)
+
+> The **NestJS API** is deployed on **Render**: [https://physics-plataform.onrender.com/](https://physics-plataform.onrender.com/) (free tier)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
