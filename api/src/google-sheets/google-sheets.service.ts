@@ -1,13 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const dotenv = require('dotenv');
-
-if (process.env.NODE_ENV === 'development') {
-  dotenv.config({ path: '.env.dev' });
-} else {
-  dotenv.config({ path: '.env.prod' });
-}
-/* eslint-enable @typescript-eslint/no-var-requires */
-
 import { Injectable } from '@nestjs/common';
 import { google } from 'googleapis';
 import { ClassFromSheetDto } from './dto/class-from-sheet.dto';

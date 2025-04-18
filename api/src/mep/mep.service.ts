@@ -1,14 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const dotenv = require('dotenv');
-
-if (process.env.NODE_ENV === 'development') {
-  dotenv.config({ path: '.env.dev' });
-} else {
-  dotenv.config({ path: '.env.prod' });
-}
-
-/* eslint-enable @typescript-eslint/no-var-requires */
-
 import { Injectable } from '@nestjs/common';
 import { CreateMepDto } from './dto/create-mep.dto';
 import { GoogleSheetsService } from 'src/google-sheets/google-sheets.service';
@@ -753,7 +742,6 @@ export class MepService {
       const minMepRef = minMepSnapshot.id;
 
       await this.usersService.decrementActivedMepsByUid(req.uid);
-      console.log(minMep);
       if (minMep.uid !== req.uid) {
         throw Error(
           'Erro ao tentar excluir um mep que não existe ou não é do usuário',
@@ -771,7 +759,6 @@ export class MepService {
         .collection('MEP_FULL_COLLECTION')
         .doc(minMep.fullMepReference)
         .delete();
-      console.log('Mep apagado com sucesso');
     } catch (error) {
       console.error('Erro ao tentar apagar um mep', error);
     }
