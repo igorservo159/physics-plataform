@@ -5,15 +5,13 @@ import { UsersRepository } from './user.repository';
 import { FirestoreDocUserInterface } from './interfaces/firestore-doc-user.interface';
 import { FirebaseAuthService } from 'src/auth/firebase-auth.service';
 import { WebhookDTO } from './dto/webHook.dto';
-import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class UsersService {
   constructor(
     private readonly userRepository: UsersRepository,
     private readonly firebaseAuthService: FirebaseAuthService,
-    private readonly mailerService: MailerService,
-  ) {}
+  ) { }
   async getUserByUid(uid: string): Promise<FirestoreDocUserInterface> {
     try {
       return this.userRepository.getUserByUid(uid);
@@ -70,21 +68,11 @@ export class UsersService {
   }
 
   async createUserInFirebaseFromKiwify(WebhookDTO: WebhookDTO) {
-    const charset =
-      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
-    let password = '';
-
-    for (let i = 0; i < 5; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      password += charset[randomIndex];
-    }
-
-    const newPassword = WebhookDTO.Customer.first_name + password;
 
     const newUserAccount: CreateUserInterface = {
       name: WebhookDTO.Customer.first_name,
       email: WebhookDTO.Customer.email,
-      password: newPassword,
+      password: '12345678',
     };
 
     const newAccountRecord =
@@ -99,19 +87,6 @@ export class UsersService {
     };
 
     this.userRepository.createUser(newUser);
-
-    await this.mailerService.sendMail({
-      from: 'prof.thiagocontato@gmail.com',
-      to: newUser.email,
-      subject: 'Criação de conta - Física com Thiago Silva',
-      html: `
-      <p>Sua conta no nosso site <a href="https://fisicacomthiagosilva.com/">https://fisicacomthiagosilva.com/</a> foi criada com sucesso.</p>
-      <p>Uma senha inicial foi gerada e você pode alterá-la ao logar na plataforma.</p>
-      <p>Senha: ${newPassword} .</p>
-      <p></p>
-      <p>Atenciosamente, equipe Física com Thiago Silva.</p>
-    `,
-    });
   }
 
   async inrementActivedMepsById(id: string) {
