@@ -7,12 +7,14 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useGlobalPipes(new ValidationPipe());
 
-  // Configuração CORS (PERIGO!!!!!!!!)
+  const allowedOrigins =
+    process.env.NODE_ENV === 'production'
+      ? ['https://physics-plataform.web.app', 'https://physics-plataform.firebaseapp.com']
+      : true;
+
   app.enableCors({
-    origin: true, // Permitir solicitações de qualquer origem
+    origin: allowedOrigins,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
     credentials: true,
   });
 
