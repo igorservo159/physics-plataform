@@ -8,7 +8,8 @@ const requiredVars = [
   'NG_APP_FIREBASE_PROJECT_ID',
   'NG_APP_FIREBASE_STORAGE_BUCKET',
   'NG_APP_FIREBASE_MESSAGING_SENDER_ID',
-  'NG_APP_FIREBASE_APP_ID'
+  'NG_APP_FIREBASE_APP_ID',
+  'NG_APP_API_URL'
 ];
 
 // Verificação das variáveis obrigatórias
@@ -35,7 +36,7 @@ export const environment = {
     messagingSenderId: '${process.env['NG_APP_FIREBASE_MESSAGING_SENDER_ID']}',
     appId: '${process.env['NG_APP_FIREBASE_APP_ID']}'
   },
-  apiUrl: 'http://localhost:3000/'
+  apiUrl: '${process.env['NG_APP_API_URL']}'
 };
 `;
 
