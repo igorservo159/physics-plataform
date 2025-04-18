@@ -4,9 +4,7 @@
 /build
 
 #Variáveis de ambiente
-.env.dev
 .env.prod
-config/dev/*
 config/prod/*
 
 .gitlab-ci.yml
